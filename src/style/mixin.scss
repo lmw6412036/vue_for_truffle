@@ -1,0 +1,51 @@
+/*
+width
+height
+*/
+@mixin w_h($w,$h:0) {
+  @if ($h==0) {
+    $h: $w;
+  }
+  width: $w;
+  height: $h;
+}
+
+/*
+top
+right
+bototm
+left*/
+@mixin t_r_b_l($t:0,$r:0,$b:0,$l:0) {
+  @if ($t==0) {
+    top: 0;
+  }
+  @if ($r==0) {
+    right: 0;
+  }
+  @if ($b==0) {
+    bottom: 0;
+  }
+  @if ($l==0) {
+    left: 0;
+  }
+}
+
+/*
+height
+line-height
+*/
+@mixin h_lh($h) {
+  height: $h;
+  line-height: $h;
+}
+/**
+
+ */
+@mixin lines($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  -webkit-line-clamp: $line;
+}

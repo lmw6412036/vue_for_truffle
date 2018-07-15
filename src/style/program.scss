@@ -1,0 +1,79 @@
+@import "./var";
+
+@font-face {
+  font-family: 'iconfont';  /* project id 748031 */
+  src: url('//at.alicdn.com/t/font_748031_17i1wnqw5h1.eot');
+  src: url('//at.alicdn.com/t/font_748031_17i1wnqw5h1.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_748031_17i1wnqw5h1.woff') format('woff'),
+  url('//at.alicdn.com/t/font_748031_17i1wnqw5h1.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_748031_17i1wnqw5h1.svg#iconfont') format('svg');
+}
+
+.iconfont, font {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-erweima:before {
+  content: "\e600";
+}
+
+.icon-htmal5icon37:before {
+  content: "\e629";
+}
+
+.icon-jiaoyijilu:before {
+  content: "\e61c";
+}
+
+.icon-gerenzhongxin:before {
+  content: "\e643";
+}
+
+.icon-guanyuwomen:before {
+  content: "\e61e";
+}
+
+.icon-wo:before {
+  content: "\e60b";
+}
+
+.icon-xitongshezhi:before {
+  content: "\e605";
+}
+
+.icon-hangqing:before {
+  content: "\e6a9";
+}
+
+.icon-ethereum:before {
+  content: "\e67b";
+}
+
+.icon-zichan:before {
+  content: "\e64c";
+}
+
+.icon-nav-management-wallet-30:before {
+  content: "\e68f";
+}
+
+.icon-htmal5icon37-copy:before {
+  content: "\e6aa";
+}
+
+.color_main {
+  color: $mainColor;
+}
+
+.bg {
+  background-color: $bgColor;
+}
+
+.bg_main {
+  background-color: $mainColor;
+}
+
+

@@ -1,0 +1,265 @@
+* {
+  box-sizing: border-box;
+}
+
+body, div, p, ol, li, ul, dl, dd, dt, h1, h2, h3, h4, h5, h6, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+i, u {
+  font-style: normal;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  content: normal !important;
+  border: 0px none;
+}
+
+/*浮动*/
+.float_r {
+  float: right;
+}
+
+.float_l {
+  float: left;
+}
+
+.flex {
+  display: flex;
+}
+
+textarea {
+  resize: none;
+}
+
+input, textarea {
+  outline: none;
+  border: 0px none;
+  -webkit-appearance: none;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.overflow-y-auto, .overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+.aic {
+  align-items: center;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+/*overflow*/
+@each $j in hidden, auto {
+  .overflow-#{$j} {
+    overflow: $j;
+  }
+  @each $i in x, y {
+    .overflow-#{$i}-#{$j} {
+      overflow-#{$i}: $j;
+    }
+  }
+}
+
+/*定位*/
+@each $i in absolute, relative, fixed {
+  .#{$i} {
+    position: $i;
+  }
+}
+
+/*radius*/
+$i: 2;
+@while ($i<=50) {
+  .radius#{$i} {
+    @if ($i==50) {
+      border-radius: #{$i+'%'}
+    } @else {
+      border-radius: #{$i}px;
+    }
+  }
+  $i: $i + 1;
+}
+
+/*字体大小*/
+$i: 10;
+@while ($i<=100) {
+  .fs#{$i} {
+    font-size: $i * 1px;
+  }
+  $i: $i + 1;
+}
+
+/*flex*/
+@each $i in 0, 1 {
+  .flex#{$i} {
+    flex: $i $i auto;
+  }
+}
+
+/*外，内边距*/
+$i: 5;
+@while ($i<=100) {
+  @each $t, $t1 in (m:margin, p:padding) {
+    @each $p, $p1 in (t:top, r:right, b:bottom, l:left) {
+      .#{$t}#{$p}#{$i} {
+        #{$t1}-#{$p1}: $i * 1px;
+      }
+    }
+  }
+  $i: $i + 1;
+}
+
+/*color*/
+$i: 111;
+@while ($i<=999) {
+  .color_#{$i} {
+    color: #{'#'+$i};
+  }
+  .bg_#{$i} {
+    background-color: #{'#'+$i};
+  }
+  $i: $i + 111 ;
+}
+
+/*color*/
+@each $i in a, b, c, d, e, f {
+  .color_#{$i}#{$i}#{$i} {
+    color: #{'#'}#{$i}#{$i}#{$i};
+  }
+  .bg_#{$i}#{$i}#{$i} {
+    background-color: #{'#'}#{$i}#{$i}#{$i};
+  }
+}
+
+/*color*/
+@each $i in orange, red, green ,yellow{
+  .color_#{$i} {
+    color: $i;
+  }
+  .bg_#{$i} {
+    background-color: $i;
+  }
+}
+
+/*对齐方式*/
+@each $i in left, right, center {
+  .#{$i} {
+    text-align: $i;
+  }
+}
+
+/*块元素，行内元素*/
+@each $i in block, inline, inline-block {
+  .#{$i} {
+    display: $i;
+  }
+}
+
+/*边框 1px-border*/
+@svg px-border {
+  height: 2px;
+  @rect {
+    fill: var(--color, black);
+    width: 100%;
+    height: 50%;
+  }
+}
+@each $i, $j in (b:bottom, t:top, l:left, r:right) {
+  %b {
+    border-#{$j}: 1px solid transparent;
+    border-image: svg(px-border param(--color #ccc)) 2 2 stretch;
+  }
+  .b#{$i} {
+    border-#{$j}: 0.5px solid #ddd;
+    //border-image: svg(px-border param(--color #ccc)) 2 2 stretch;
+  }
+  .bafter-#{$i} {
+    &:after {
+      content: '';
+      display: block;
+      background-color: #CCCCCC;
+      position: absolute;
+    }
+    @if ($i==l) {
+      &:after {
+        transform: scaleX(0.5);
+        transform-origin: 0% 0%;
+        width: 2px;
+        left: 0;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+/*h1-h6*/
+$i: 1;
+@while ($i<=6) {
+  h#{$i} {
+    font-weight: normal;
+  }
+  $i: $i + 1;
+}
+
+/*top bottom left right*/
+$i: 0;
+@while ($i<=100) {
+  @each $j, $k in (b:bottom, t:top, l:left, r:right) {
+    .#{$j}#{$i} {
+      #{$k}: #{$i}px;
+    }
+  }
+  $i: $i + 1;
+}
+
+/*rgba*/
+$i: 1;
+@while ($i<=9) {
+  $alpha: $i / 10;
+  .rgba#{$i} {
+    background-color: rgba(0, 0, 0, $alpha);
+  }
+  $i: $i + 1;
+}
+
+/*flex-direction: column row*/
+@each $i in column, row {
+  .#{$i} {
+    flex-direction: $i;
+  }
+}
+
+/*flex
+ * justify-content: space-between space-around*/
+@each $i in space-between, space-around {
+  .#{$i} {
+    justify-content: $i;
+  }
+}
+
+$i: 10;
+@while ($i<=20) {
+  .lh#{$i} {
+    line-height: #{$i * 10 + '%'};
+  }
+  $i: $i + 1;
+}
+
